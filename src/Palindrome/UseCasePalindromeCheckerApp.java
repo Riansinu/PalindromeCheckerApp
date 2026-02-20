@@ -1,4 +1,7 @@
 package Palindrome;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class UseCasePalindromeCheckerApp {
    public  static void main(String[] args) {
@@ -39,6 +42,9 @@ public class UseCasePalindromeCheckerApp {
                isPalindromeUC4 = false;
                break;
            }
+           left++;
+           right--;
+
        }
        if (isPalindromeUC4) {
            System.out.println("UC4 Result (Character Array Method): True");
@@ -51,6 +57,25 @@ public class UseCasePalindromeCheckerApp {
        } else {
            System.out.println("UC3 Result (String Reverse): False");
        }
+       //UC6: Queue + Stack Method
+       // ==========================
+       Stack<Character> uc6Stack = new Stack<>();
+       Queue<Character> queue = new LinkedList<>();
 
+       for (int i = 0; i < word.length(); i++) {
+           uc6Stack.push(word.charAt(i));
+           queue.add(word.charAt(i));
+       }
+
+       boolean uc6Palindrome = true;
+
+       while (!uc6Stack.isEmpty()) {
+           if (!uc6Stack.pop().equals(queue.remove())) {
+               uc6Palindrome = false;
+               break;
+           }
+       }
+
+       System.out.println("UC6 Result: " + uc6Palindrome);
    }
 }
