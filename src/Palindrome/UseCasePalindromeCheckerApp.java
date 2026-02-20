@@ -51,6 +51,27 @@ public class UseCasePalindromeCheckerApp {
        } else {
            System.out.println("UC3 Result (String Reverse): False");
        }
+       // UC5
+       System.out.println("\n--- UC5: Stack-Based Check ---");
+
+       java.util.Stack<Character> stack = new java.util.Stack<>();
+
+
+       for (int i = 0; i < word.length(); i++) {
+           stack.push(word.charAt(i));
+       }
+
+       boolean uc5Palindrome = true;
+
+
+       for (int i = 0; i < word.length(); i++) {
+           if (word.charAt(i) != stack.pop()) {
+               uc5Palindrome = false;
+               break;
+           }
+       }
+
+       System.out.println("UC5 Result (Stack): " + uc5Palindrome);
 
    }
 }
