@@ -7,7 +7,7 @@ public class UseCasePalindromeCheckerApp {
        System.out.println("version 1");
        System.out.println("System initialized successfully");
        String word ="madam";
-       //use caqse 2
+       //use case 2
        boolean isPalindrome = true;
 
        for(int i = 0; i < word.length() / 2; i++) {
@@ -28,6 +28,22 @@ public class UseCasePalindromeCheckerApp {
 
        for (int i = word.length() - 1; i >= 0; i--) {
            reversed = reversed + word.charAt(i);
+       }
+       //use case 4
+       char[] characters = word.toCharArray();
+       boolean isPalindromeUC4 = true;
+       int left =0;
+       int right =characters.length-1;
+       while (left<right){
+           if (characters[left] != characters[right]) {
+               isPalindromeUC4 = false;
+               break;
+           }
+       }
+       if (isPalindromeUC4) {
+           System.out.println("UC4 Result (Character Array Method): True");
+       } else {
+           System.out.println("UC4 Result (Character Array Method): False");
        }
 
        if (word.equals(reversed)) {
