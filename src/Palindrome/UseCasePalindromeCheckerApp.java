@@ -1,7 +1,5 @@
 package Palindrome;
-import java.util.Stack;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
 
 public class UseCasePalindromeCheckerApp {
    public  static void main(String[] args) {
@@ -77,5 +75,27 @@ public class UseCasePalindromeCheckerApp {
        }
 
        System.out.println("UC6 Result: " + uc6Palindrome);
+       // ==========================
+// UC7: Deque Based Method
+// ==========================
+       Deque<Character> deque = new ArrayDeque<>();
+
+       for (int i = 0; i < word.length(); i++) {
+           deque.addLast(word.charAt(i));
+       }
+
+       boolean uc7Palindrome = true;
+
+       while (deque.size() > 1) {
+           char front = deque.removeFirst();
+           char rear = deque.removeLast();
+
+           if (front != rear) {
+               uc7Palindrome = false;
+               break;
+           }
+       }
+
+       System.out.println("UC7 Result (Deque Method): " + uc7Palindrome);
    }
 }
